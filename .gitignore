@@ -1,0 +1,9 @@
+.env
+bin/
+*.exe
+*.log
+*.test
+.idea/
+.vscode/
+.DS_Store
+node_modules/
