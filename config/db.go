@@ -24,7 +24,7 @@ func ConnectDB() {
 
 	client, err := mongo.NewClient(options.Client().ApplyURI(mongoURI))
 	if err != nil {
-		log.Fatal(err)
+		log.Fatal("Error creando cliente Mongo:", err)
 	}
 
 	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
@@ -32,9 +32,9 @@ func ConnectDB() {
 
 	err = client.Connect(ctx)
 	if err != nil {
-		log.Fatal(err)
+		log.Fatal("Error conectando a MongoDB:", err)
 	}
 
 	DB = client.Database(dbName)
-	log.Println("Conección abierta a MongoDB")
+	log.Println("Conectado correctamente a MongoDB Atlas.")
 }
